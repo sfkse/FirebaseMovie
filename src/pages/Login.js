@@ -10,9 +10,8 @@ const Login = () => {
 
     const handleLogin = (e) => {
         e.preventDefault()
-        console.log('object')
-        signIn(email, password)
-        history.push('/')
+        signIn(email, password, history)
+
     }
 
     return (

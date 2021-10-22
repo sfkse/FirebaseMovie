@@ -13,8 +13,8 @@ const Register = () => {
 
         const user = { firstName, lastName, email, password };
         const displayName = `${firstName} ${lastName}`;
-        createUser(user.email, user.password, displayName);
-        history.push('/');
+        createUser(user.email, user.password, displayName, history);
+
     }
 
 

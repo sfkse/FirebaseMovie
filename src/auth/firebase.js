@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, onAuthStateChanged, signOut } from "firebase/auth";
 
 
 export const firebaseConfig = initializeApp({
@@ -11,14 +11,14 @@ export const firebaseConfig = initializeApp({
     appId: "1:999341964879:web:22900dfb9350a83d17743a"
 });
 
-export const createUser = async (email, password, displayName) => {
+export const createUser = async (email, password, displayName, history) => {
     try {
         const auth = getAuth();
         await createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                // ...
+                history.push('/');
 
             })
 
@@ -30,13 +30,13 @@ export const createUser = async (email, password, displayName) => {
     }
 }
 
-export const signIn = (email, password) => {
+export const signIn = (email, password, history) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            console.log(user)
+            history.push('/');
             // ...
         })
         .catch((error) => {
@@ -57,4 +57,9 @@ export const userObserver = async (setCurrentUser) => {
             setCurrentUser(null)
         }
     });
+}
+
+export const userSignOut = () => {
+    const auth = getAuth();
+    signOut(auth)
 }

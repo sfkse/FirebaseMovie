@@ -1,11 +1,17 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { userSignOut } from "../auth/firebase";
 
 
 const Navbar = () => {
     const history = useHistory();
     const currentUser = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        userSignOut();
+        history.push('/login')
+    }
 
     return (
         <div>
@@ -31,7 +37,7 @@ const Navbar = () => {
                             <button
                                 type="button"
                                 className="ms-2 btn btn-outline-light"
-
+                                onClick={handleSignOut}
                             >
                                 Logout
                             </button>
