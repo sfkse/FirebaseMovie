@@ -9,7 +9,7 @@ const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleSubmit = () => {
+    const handleRegister = () => {
 
         const user = { firstName, lastName, email, password };
         const displayName = `${firstName} ${lastName}`;
@@ -45,9 +45,9 @@ const Register = () => {
                         <label htmlFor="password" class="form-label display-4">Password</label>
                         <input type="password" class="form-control" id="password" placeholder="Enter your password..." onChange={e => setPassword(e.target.value)} />
                     </div>
-                    <input type="button" class="btn btn-primary form-control" value="Register" onClick={handleSubmit} />
+                    <input type="button" class="btn btn-primary form-control" value="Register" onClick={handleRegister} />
                 </form>
-                <button class="btn btn-primary form-control" onClick={handleSubmit}>Continue with Google</button>
+                <button class="btn btn-primary form-control">Continue with Google</button>
             </div>
         </div>
     );
