@@ -3,7 +3,8 @@ import { useHistory } from "react-router-dom";
 import { signIn } from "../auth/firebase";
 
 
-const Login = () => {
+const Login = ({ handleGoogleRegister }) => {
+
     const history = useHistory();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -59,7 +60,7 @@ const Login = () => {
                 </form>
                 <button
                     className="btn btn-primary form-control"
-
+                    onClick={() => handleGoogleRegister(history)}
                 >
                     Continue with Google
                 </button>
