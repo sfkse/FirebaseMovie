@@ -9,6 +9,7 @@ body {
   color: #fff;
   font-family: "Poppins", "sans-serif";
   margin: 0;
+  overflow-x: hidden;
 }
 
 .root {
@@ -146,7 +147,7 @@ body {
 
 .form-image {
   flex: 1;
-  min-width: 1200px;
+  min-width: 60%;
   min-height: 900px;
 }
 
